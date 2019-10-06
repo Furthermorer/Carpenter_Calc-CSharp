@@ -84,7 +84,12 @@ namespace Totalapp
                 }
                 else if (r < b)
                 {
-                    MessageBox.Show("半径应大于等于半弦长。");
+                    MessageBox.Show("半径r应大于等于半弦长b。");
+                    textBox1.Focus();
+                }
+                else if (b < x)
+                {
+                    MessageBox.Show("坐标x应小于等于半弦长b。");
                     textBox1.Focus();
                 }
                 else
