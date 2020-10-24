@@ -468,8 +468,10 @@ namespace Totalapp
                     if (d > 90)
                         d = 180 - d;
                     f = (d - (int)d) * 60;
+                    d = (int)d;
                     MainForm.Plus(ref f);
                     h = (f - (int)f) * 60;
+                    f = (int)f;
                     if (n == 3)
                         saved = 120;
                     saved = d;
