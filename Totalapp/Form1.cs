@@ -160,7 +160,7 @@ namespace Totalapp
         private void button3_Click(object sender, EventArgs e)
         {
             decimal w, x = 0, gonggaoxs, xiebianxs, w2, t, k, dek;
-            double dw, dx;
+            double dw, dx, logdx;
             int idek;
             string str = "";
             try
@@ -171,7 +171,9 @@ namespace Totalapp
                 w2 = w * w;
                 x = Convert.ToDecimal(textBox8.Text);
                 dx = Convert.ToDouble(x);
-                if (dx % 2 != 0 )
+                logdx = Math.Log(dx, 2);
+                double subdx = logdx - (int)logdx;
+                if (subdx != 0.0)
                 {
                     MessageBox.Show("弦长级应为2的幂指数");
                     textBox8.Focus();
@@ -354,16 +356,16 @@ namespace Totalapp
 
         private void button6_Click(object sender, EventArgs e)
         {
-            decimal d,f,m,pd,pdxs;
-            string str="";
+            decimal d, f, m, pd, pdxs;
+            string str = "";
             try
             {
                 d = Convert.ToDecimal(textBox13.Text);
                 f = Convert.ToDecimal(textBox14.Text);
                 m = Convert.ToDecimal(textBox15.Text);
-                if (d < 0 || f < 0 || m < 0)
+                if ((d < 0 || f < 0 || m < 0)||(d == 0 && f ==0 && m<=0))
                 {
-                    MessageBox.Show("度角分应都大于0。");
+                    MessageBox.Show("角度应大于0°0′0″");
                     textBox13.Focus();
                 }
                 else if (d > 180)
@@ -373,7 +375,7 @@ namespace Totalapp
                 }
                 else
                 {
-                    d = d + f / 60 + m / 3600;
+                    d = d + f / 60 + m / 3600;                                                                                                         
                     pd = Convert.ToDecimal(1.0 / Math.Tan(Convert.ToDouble(d) * Math.PI / 180) * 100);
                     pdxs = Convert.ToDecimal(Math.Sqrt(1.0 + Convert.ToDouble(pd * pd) / 10000));
                     str += String.Format("坡度={0:0.0000}%\n坡度系数={1:0.0000}", pd, pdxs);
@@ -464,12 +466,15 @@ namespace Totalapp
                     ew = (c - (int)c) * 60;
                     MainForm.Plus(ref ew);
                     g = (ew - (int)ew) * 60;
+                    ew = (int)ew;
                     d = (Convert.ToDecimal(360) / n);
                     if (d > 90)
                         d = 180 - d;
                     f = (d - (int)d) * 60;
+                    //f = (int)f;
                     MainForm.Plus(ref f);
                     h = (f - (int)f) * 60;
+                    f = (int)f;
                     if (n == 3)
                         saved = 120;
                     saved = d;

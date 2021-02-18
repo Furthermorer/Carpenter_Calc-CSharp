@@ -569,9 +569,9 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(546, 59);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(89, 12);
+            this.label27.Size = new System.Drawing.Size(77, 12);
             this.label27.TabIndex = 27;
-            this.label27.Text = "求角坡系对查表";
+            this.label27.Text = "角坡系对查表";
             // 
             // label26
             // 
@@ -847,7 +847,7 @@
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(113, 12);
             this.label38.TabIndex = 35;
-            this.label38.Text = "求正多边形各种数据";
+            this.label38.Text = "求正多边形相关数据";
             // 
             // MainForm
             // 
